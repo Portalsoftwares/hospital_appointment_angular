@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Appointment } from 'src/app/model/appointment';
 import { MasterService } from 'src/app/service/master.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { MasterService } from 'src/app/service/master.service';
 })
 export class NewAppointmentComponent {
 
-  appointmentObj: any = {
+  appointmentObj: Appointment = {
     "name": "",
     "mobileNo": "",
     "city": "",
@@ -27,9 +28,9 @@ export class NewAppointmentComponent {
       if(res.result) {
         alert("Appointment Done & Appintment No is -" + res.data.appointmentNo);
       }
-    },errror => {
-      alert("API Error/ Check Form")
+    },error => {
+      alert("API Error/ Check Form" + error.message)
     })
   }
-  
+
 }
